@@ -218,6 +218,9 @@ function addToNoteBar(note) {
 
   noteName.addEventListener('click', function (event) {
     event.preventDefault();
+    let noteNameClicked = event.target.dataset.name;
+    let audio = document.querySelector(`#${noteNameClicked}-Note`);
+    audio.play()
     onNoteClick(event.target.dataset.id)
 
   })
