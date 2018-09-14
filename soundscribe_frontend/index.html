@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sound-Scribe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+  <body style="background-color: #778899;color: #FFFFFF;">
+    <h4 class="ui horizontal inverted divider">
+      Existing Melodies
+    </h4>
+
+    <div class="melody-collection ui cards grid container">
+    </div>
+
+    <div id="make-a-melody-div" class="creation-container ui inverted segment">
+      <h4 class="ui horizontal inverted divider">
+        Make A Melody
+      </h4>
+
+      <div class="input-title-bar ui inverted right icon input">
+        <input id="title-bar-value" type="text" placeholder="Song Title..."/>
+        <i class="heartbeat icon"></i>
+      </div>
+
+      <div class="note-bar">
+      </div>
+
+      <div class="note-collection ui big horizontal divided list">
+      </div>
+
+      <div>
+        <button class="clear-button ui button">Clear</button>
+        <button class="submit-button ui primary button">Submit</button>
+        <button class="hide save-button ui button">Save</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
