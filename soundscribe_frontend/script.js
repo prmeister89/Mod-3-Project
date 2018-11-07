@@ -208,7 +208,6 @@ function renderNoteCollection(noteLettersArray) {
 }
 
 function addToNoteBar(note) {
-  // console.log(note)
 
   let noteName = document.createElement('a');
   noteName.className = `note-${note.id} item `;
@@ -222,7 +221,6 @@ function addToNoteBar(note) {
     let audio = document.querySelector(`#${noteNameClicked}-Note`);
     audio.play()
     onNoteClick(event.target.dataset.id)
-
   })
 
   noteBarCard.appendChild(noteName);
