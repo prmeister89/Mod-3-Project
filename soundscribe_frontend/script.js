@@ -46,13 +46,13 @@ let saveButton = document.querySelector('.save-button');
 
 // Fetch Functions
 function fetchNotes() {
-  fetch(`http://localhost:3000/notes`)
+  fetch(`https://soundscribe-api.herokuapp.com/notes`)
   .then(res => res.json())
   .then(notes => notes.forEach(note => addToNoteBar(note)))
 }
 
 function fetchMelodies() {
-  fetch(`http://localhost:3000/melodies`)
+  fetch(`https://soundscribe-api.herokuapp.com/melodies`)
   .then(res => res.json())
   .then(data => data.forEach(melody => addMelodyToDom(melody)))
 }
@@ -60,7 +60,7 @@ function fetchMelodies() {
 function addSongTitleToDatabase() {
   let titleValue = document.getElementById('title-bar-value').value;
   let newSongTitle = {title: titleValue};
-  fetch('http://localhost:3000/songs', {
+  fetch('https://soundscribe-api.herokuapp.com/songs', {
     method: "POST",
     headers: {
       'Content-Type':'application/json',
@@ -77,7 +77,7 @@ function addSongTitleToDatabase() {
 
 function addMelodyToDatabase(id) {
   let newNoteArrayFromNewMelody = {song_id: id, note_id_array: noteArray.map(note => note.id)};
-  fetch('http://localhost:3000/melodies', {
+  fetch('https://soundscribe-api.herokuapp.com/melodies', {
     method: "POST",
     headers: {
       'Content-Type':'application/json',
@@ -91,7 +91,7 @@ function addMelodyToDatabase(id) {
 
 function deleteCard(id) {
   let deleteCurrentSongCard = document.querySelector(`.song-card-${id}`);
-  fetch(`http://localhost:3000/melodies/${id}`, {
+  fetch(`https://soundscribe-api.herokuapp.com/melodies/${id}`, {
     method: "DELETE"
   })
   .then(res => res.json())
@@ -99,7 +99,7 @@ function deleteCard(id) {
 }
 
 function fetchIndividualMelody(cardDatasetInfo) {
-  fetch(`http://localhost:3000/melodies/${cardDatasetInfo.id}`)
+  fetch(`https://soundscribe-api.herokuapp.com/melodies/${cardDatasetInfo.id}`)
   .then(res => res.json())
   .then(melodyData => editCard(melodyData))
 }
@@ -107,7 +107,7 @@ function fetchIndividualMelody(cardDatasetInfo) {
 function updateSongFromDomToDatabase(patchData, submitButton) {
   let melodyId = patchData.id;
   debugger
-  fetch(`http://localhost:3000/melodies/${melodyId}`, {
+  fetch(`https://soundscribe-api.herokuapp.com/melodies/${melodyId}`, {
     method: "PATCH",
     headers: {
       'Content-Type':'application/json',
@@ -142,7 +142,7 @@ function onSaveClick(cardDatasetInfo) {
 
 
 function onNoteClick(id) {
-  fetch(`http://localhost:3000/notes/${id}`)
+  fetch(`https://soundscribe-api.herokuapp.com/notes/${id}`)
   .then(res => res.json())
   .then(singleNote => {
     addNoteToArray(singleNote);
